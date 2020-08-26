@@ -1,4 +1,4 @@
-import calulator
+import calculator
 import pytest
  
 def test_addition():
