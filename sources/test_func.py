@@ -20,4 +20,11 @@ def test_multiply():
     assert calculator.mul(25,10)==250
     print("Finished")
 
+def test_division():
+    assert calculator.div(100,10)==10
+    assert calculator.div(30,10)==3
+    assert calculator.div(25,5)==5
+    print("checking auto trigger function again.")
+
+
 
