@@ -1,7 +1,7 @@
 pipeline {
     agent none
     stages {
-        stage('python test') {
+        stage('Python build') {
 			agent {
 				docker {
 					image 'python:2-alpine'
@@ -10,38 +10,24 @@ pipeline {
 			
             steps {
                 sh 'python --version'
-				echo 'python test case '
+				sh 'python -m py_compile sources/calculator.py'
+				
             }
         }
-		
-		stage('Java test') {
+    
+		stage('Python test') {
 			agent {
 				docker {
-					image 'node:6.3'
+					image 'qniba/pytest'
 				
 				}
 			}
 			
 			steps {
-				sh 'npm --version'
-				echo'Java test case'
-				echo 'We can call Java Script here.'
-			}
-		}
-		
-		stage('Ruby test') {
-			agent {
-				docker {
-					image 'ruby'
-				}
-			}
+				sh'py.test -v sources/test_func.py'
+				echo'testing finished.'
 			
-			steps {
-                sh 'ruby --version'
-				echo 'ruby test case.'
-				echo 'We can call ruby script here.'
-            }
+			}
 		}
-		
-    }
+	}
 }
