@@ -26,6 +26,8 @@ pipeline {
 			steps {
 				sh'py.test -v sources/test_func.py'
 				echo'testing finished.'
+				echo'testing auto trigger event.'
+				
 			
 			}
 		}
