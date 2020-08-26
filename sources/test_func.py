@@ -13,4 +13,11 @@ def test_subtraction():
     assert calculator.subtraction(30,10)==20
     assert calculator.subtraction(25,10)==15
     print("checking auto trigger function again.")
+    
+def test_multiply():
+    assert calculator.mul(10,3)==30
+    assert calculator.mul(30,10)==300
+    assert calculator.mul(25,10)==250
+    print("Finished")
+
 
